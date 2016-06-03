@@ -1,6 +1,6 @@
 # Dashboard Sample
 
-This is a showcase [CUBA](https://www.cuba-platform.com/) application which demonstrates how to customize system screens using CssLayout.
+This is a showcase [CUBA](https://www.cuba-platform.com) application which demonstrates how to build a responsive UI screen.
 
 The application has fully customized dashboard which uses `CssLayout` with [Vaadin responsive extention](https://vaadin.com/wiki/-/wiki/Main/Responsive+layouts+using+the+Responsive+extension).
 
