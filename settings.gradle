@@ -1,6 +1,6 @@
 rootProject.name = 'platform-sample-dashboard'
-include(':dashboard-global', ':dashboard-core', ':dashboard-gui', ':dashboard-web')
-project(':dashboard-global').projectDir = new File(settingsDir, 'modules/global')
-project(':dashboard-core').projectDir = new File(settingsDir, 'modules/core')
-project(':dashboard-gui').projectDir = new File(settingsDir, 'modules/gui')
-project(':dashboard-web').projectDir = new File(settingsDir, 'modules/web')
+include(':app-global', ':app-core', ':app-gui', ':app-web')
+project(':app-global').projectDir = new File(settingsDir, 'modules/global')
+project(':app-core').projectDir = new File(settingsDir, 'modules/core')
+project(':app-gui').projectDir = new File(settingsDir, 'modules/gui')
+project(':app-web').projectDir = new File(settingsDir, 'modules/web')

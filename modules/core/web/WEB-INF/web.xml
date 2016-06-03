@@ -9,7 +9,7 @@
         <param-value>classpath:cuba-app.properties
             classpath:app.properties
             /WEB-INF/local.app.properties
-            "file:${catalina.home}/conf/dashboard-core/local.app.properties"</param-value>
+            "file:${catalina.home}/conf/app-core/local.app.properties"</param-value>
     </context-param>
     <listener>
         <listener-class>com.haulmont.cuba.core.sys.AppContextLoader</listener-class>

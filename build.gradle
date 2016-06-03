@@ -22,10 +22,10 @@ buildscript {
     }
 }
 
-def globalModule = project(':dashboard-global')
-def coreModule = project(':dashboard-core')
-def guiModule = project(':dashboard-gui')
-def webModule = project(':dashboard-web')
+def globalModule = project(':app-global')
+def coreModule = project(':app-core')
+def guiModule = project(':app-gui')
+def webModule = project(':app-web')
 
 def servletApi = 'org.apache.tomcat:tomcat-servlet-api:8.0.26'
 
@@ -40,17 +40,11 @@ cuba {
     }
     tomcat {
         dir = "$project.rootDir/build/tomcat"
-        port = 8082
-        shutdownPort = 8007
-        ajpPort = 8011
     }
     ide {
-        copyright = '''Copyright (c) ${today.year} ${project.name}''' // Copyright Notice for IDEA project
-        classComment ='''/**
- * @author ${USER}
- */'''
+        copyright = '''''' // Copyright Notice for IDEA project
+        classComment =''''''
         vcs = 'Git'
-        
     }
 }
 
@@ -107,7 +101,7 @@ configure(coreModule) {
     }
 
     task cleanConf(description: 'Cleans up conf directory') << {
-        def dir = new File(cuba.tomcat.dir, '/conf/dashboard-core')
+        def dir = new File(cuba.tomcat.dir, '/conf/app-core')
         if (dir.isDirectory()) {
             ant.delete(includeemptydirs: true) {
                 fileset(dir: dir, includes: '**/*', excludes: 'local.app.properties')
@@ -116,9 +110,9 @@ configure(coreModule) {
     }
 
     task deploy(dependsOn: [assemble, cleanConf], type: CubaDeployment) {
-        appName = 'dashboard-core'
+        appName = 'app-core'
         appJars('cuba-core', 'cuba-global', 'charts-global', 
-                'dashboard-global', 'dashboard-core')
+                'app-global', 'app-core')
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
@@ -145,7 +139,6 @@ configure(guiModule) {
         compile(globalModule)
         compile("com.haulmont.cuba:cuba-gui:$cubaVersion")
         testCompile("com.haulmont.cuba:cuba-client-tests:$cubaVersion")
-        testCompile('org.jmockit:jmockit:1.15')
         compile("com.haulmont.charts:charts-gui:$cubaVersion")
         testCompile('org.jmockit:jmockit:1.15')
 
@@ -154,7 +147,7 @@ configure(guiModule) {
     task deployConf(type: Copy) {
         from file('src')
         include "com/company/dashboard/**"
-        into "$cuba.tomcat.dir/conf/dashboard"
+        into "$cuba.tomcat.dir/conf/app"
     }
 }
 
@@ -171,7 +164,6 @@ configure(webModule) {
         compile("com.haulmont.cuba:cuba-web:$cubaVersion")
         webcontent("com.haulmont.cuba:cuba-web:$cubaVersion:web@zip")
         testCompile("com.haulmont.cuba:cuba-client-tests:$cubaVersion")
-        testCompile('org.jmockit:jmockit:1.15')
         compile("com.haulmont.charts:charts-web:$cubaVersion")
         webcontent("com.haulmont.charts:charts-web:$cubaVersion:web@zip")
         webcontent("com.haulmont.charts:charts-web-toolkit:$cubaVersion:web@zip")
@@ -193,16 +185,16 @@ configure(webModule) {
     task deployConf(type: Copy) {
         from file('src')
         include "com/company/dashboard/**"
-        into "$cuba.tomcat.dir/conf/dashboard"
+        into "$cuba.tomcat.dir/conf/app"
     }
 
     task clearMessagesCache(type: CubaClearMessagesCache) {
-        appName = 'dashboard'
+        appName = 'app'
     }
     deployConf.dependsOn clearMessagesCache
 
     task cleanConf(description: 'Cleans up conf directory') << {
-        def dir = new File(cuba.tomcat.dir, '/conf/dashboard')
+        def dir = new File(cuba.tomcat.dir, '/conf/app')
         if (dir.isDirectory()) {
             ant.delete(includeemptydirs: true) {
                 fileset(dir: dir, includes: '**/*', excludes: 'local.app.properties')
@@ -211,22 +203,25 @@ configure(webModule) {
     }
 
     task deploy(dependsOn: [assemble, cleanConf], type: CubaDeployment) {
-        appName = 'dashboard'
-        appJars('cuba-gui', 'cuba-client', 'charts-gui', 'cuba-web', 'cuba-rest-api', 'charts-web', 'cuba-global', 'charts-global', 
-                'dashboard-global', 'dashboard-gui', 'dashboard-web')
+        appName = 'app'
+        appJars('cuba-client', 'cuba-gui', 'charts-gui', 'cuba-global', 'charts-global', 'cuba-web', 'cuba-rest-api', 'charts-web', 
+                'app-global', 'app-gui', 'app-web')
     }
     task buildScssThemes(type: CubaWebScssThemeCreation)
     task deployThemes(type: CubaDeployThemeTask, dependsOn: buildScssThemes)
     assemble.dependsOn buildScssThemes
 }
 
-task undeploy(type: Delete, dependsOn: ':dashboard-web:cleanConf') {
+
+
+
+task undeploy(type: Delete, dependsOn: ':app-web:cleanConf') {
     delete("$cuba.tomcat.dir/shared")
-    delete("$cuba.tomcat.dir/webapps/dashboard-core")
-    delete("$cuba.tomcat.dir/webapps/dashboard")
+    delete("$cuba.tomcat.dir/webapps/app-core")
+    delete("$cuba.tomcat.dir/webapps/app")
 }
 
-task restart(dependsOn: ['stop', ':dashboard-core:deploy', ':dashboard-web:deploy'], description: 'Redeploys applications and restarts local Tomcat') << {
+task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], description: 'Redeploys applications and restarts local Tomcat') << {
     ant.waitfor(maxwait: 6, maxwaitunit: 'second', checkevery: 2, checkeveryunit: 'second') {
         not {
             socket(server: 'localhost', port: '8787')
