@@ -1,0 +1,9 @@
+@import "../halo/halo";
+
+/* Define your theme modifications inside next mixin */
+@import "dashboard";
+
+@mixin halo-ext {
+  @include halo;
+  @include taxi-dashboard;
+}

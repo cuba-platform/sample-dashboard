@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2016 Haulmont
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.dashboard.web.mainwindow.ExtAppMainWindow"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
+        xmlns:main="http://schemas.haulmont.com/cuba/mainwindow.xsd">
+    <dsContext>
+        <collectionDatasource id="routeDs"
+                              class="com.company.dashboard.route.Route"
+                              refreshMode="NEVER"/>
+    </dsContext>
+    <layout>
+        <cssLayout height="100%"
+                   responsive="true"
+                   stylename="responsive-all"
+                   width="100%">
+            <hbox expand="mainbody"
+                  height="100%"
+                  stylename="main-container"
+                  width="100%">
+                <cssLayout height="100%"
+                           stylename="leftmenu">
+                    <vbox stylename="userbar">
+                        <embedded id="logo"
+                                  stylename="logo"
+                                  type="IMAGE"
+                                  src="theme://icons/taxi.png"/>
+                    </vbox>
+                    <button align="MIDDLE_LEFT"
+                            caption="msg://dashboard"
+                            description="msg://dashboard"
+                            icon="icons/dashboard.png"
+                            stylename="menubutton menubutton-selected"/>
+                    <button align="MIDDLE_LEFT"
+                            caption="msg://cars"
+                            description="msg://cars"
+                            icon="icons/car.png"
+                            invoke="buttonNotImplementedAction"
+                            stylename="menubutton"/>
+                    <button align="MIDDLE_LEFT"
+                            caption="msg://orders"
+                            description="msg://orders"
+                            icon="icons/list.png"
+                            invoke="buttonNotImplementedAction"
+                            stylename="menubutton"/>
+                    <button align="MIDDLE_LEFT"
+                            caption="msg://reports"
+                            description="msg://reports"
+                            icon="icons/report.png"
+                            invoke="buttonNotImplementedAction"
+                            stylename="menubutton"/>
+                    <button align="MIDDLE_LEFT"
+                            caption="msg://settings"
+                            description="msg://settings"
+                            icon="icons/settings.png"
+                            invoke="buttonNotImplementedAction"
+                            stylename="menubutton"/>
+                    <link stylename="cuba-full-link"
+                          target="_blank"
+                          icon="icons/cubalogo-full.png"
+                          url="https://www.cuba-platform.com"/>
+                    <link stylename="cubalink"
+                          target="_blank"
+                          icon="icons/cubalogo.png"
+                          url="https://www.cuba-platform.com"/>
+                </cssLayout>
+                <vbox id="mainbody"
+                      expand="responsive"
+                      height="100%"
+                      stylename="mainbody">
+                    <vbox width="100%">
+                        <hbox expand="heading"
+                              margin="true"
+                              spacing="true"
+                              width="100%">
+                            <popupButton id="popupButton"
+                                         stylename="open-menu-button">
+                                <actions>
+                                    <action id="dashboardButton"
+                                            caption="msg://dashboard"
+                                            icon="icons/dashboard_black.png"
+                                            invoke="buttonNotImplementedAction"/>
+                                    <action id="carsButton"
+                                            caption="msg://cars"
+                                            icon="icons/car_black.png"
+                                            invoke="buttonNotImplementedAction"/>
+                                    <action id="ordersButton"
+                                            caption="msg://orders"
+                                            icon="icons/list_black.png"
+                                            invoke="buttonNotImplementedAction"/>
+                                    <action id="reportsButton"
+                                            caption="msg://reports"
+                                            icon="icons/report_black.png"
+                                            invoke="buttonNotImplementedAction"/>
+                                    <action id="settingsButton"
+                                            caption="msg://settings"
+                                            icon="icons/settings_black.png"
+                                            invoke="buttonNotImplementedAction"/>
+                                    <action id="logoutButton"
+                                            caption="msg://signOut"
+                                            invoke="signOut"/>
+                                </actions>
+                            </popupButton>
+                            <label id="heading"
+                                   stylename="header"
+                                   value="Dashboard"/>
+                            <button description="msg://notifications"
+                                    icon="icons/notifications.png"
+                                    invoke="buttonNotImplementedAction"
+                                    stylename="notifications-button"/>
+                            <button description="msg://signOut"
+                                    icon="icons/power-button.png"
+                                    invoke="signOut"
+                                    stylename="logout-button-cst"/>
+                        </hbox>
+                        <cssLayout responsive="true"
+                                   stylename="colorBoxPanel"
+                                   width="100%">
+                            <vbox height="50%"
+                                  stylename="panel-top-container">
+                                <vbox align="MIDDLE_LEFT"
+                                      expand="greenpanel"
+                                      height="100%"
+                                      stylename="panel"
+                                      width="100%">
+                                    <label stylename="paneltext"
+                                           value="msg://bookings"/>
+                                    <vbox id="greenpanel"
+                                          stylename="inner-panel"
+                                          width="100%">
+                                        <vbox align="MIDDLE_CENTER">
+                                            <label stylename="bigtext"
+                                                   value="1870"
+                                                   width="100%"/>
+                                            <chart:serialChart id="greenSerialChart"
+                                                               autoMargins="true"
+                                                               categoryField="year"
+                                                               creditsPosition="bottom-left"
+                                                               height="110px"
+                                                               marginBottom="26"
+                                                               marginLeft="20"
+                                                               marginRight="20"
+                                                               marginTop="10"
+                                                               theme="NONE"
+                                                               width="100%">
+                                                <chart:valueAxes>
+                                                    <chart:axis axisAlpha="0"
+                                                                gridAlpha="0"
+                                                                labelsEnabled="false"
+                                                                position="LEFT"
+                                                                stackType="REGULAR"/>
+                                                </chart:valueAxes>
+                                                <chart:chartCursor bulletsEnabled="false"
+                                                                   categoryBalloonEnabled="false"
+                                                                   cursorAlpha="1"
+                                                                   cursorColor="#67BFF4"
+                                                                   selectionAlpha="1"
+                                                                   valueBalloonsEnabled="false"
+                                                                   valueLineBalloonEnabled="false"
+                                                                   valueLineEnabled="false"/>
+                                                <chart:balloon borderAlpha="0.4"
+                                                               borderColor="#67BFF4"
+                                                               color="#67BFF4"
+                                                               fillAlpha="0.8"/>
+                                                <chart:graphs>
+                                                    <chart:graph fillAlphas="1"
+                                                                 fillColors="#67BFF4"
+                                                                 lineAlpha="0"
+                                                                 showBalloon="true"
+                                                                 title="Cars"
+                                                                 type="COLUMN"
+                                                                 valueField="value"/>
+                                                    <chart:graph fillAlphas="1"
+                                                                 fillColors="#EFEFEF"
+                                                                 lineAlpha="0"
+                                                                 showBalloon="true"
+                                                                 title="All"
+                                                                 type="COLUMN"
+                                                                 valueField="backValue"/>
+                                                </chart:graphs>
+                                                <chart:categoryAxis axisAlpha="0"
+                                                                    axisColor="#DADADA"
+                                                                    gridAlpha="0"
+                                                                    labelFrequency="0"
+                                                                    labelsEnabled="false"
+                                                                    startOnAxis="false"/>
+                                            </chart:serialChart>
+                                        </vbox>
+                                    </vbox>
+                                </vbox>
+                            </vbox>
+                            <vbox height="50%"
+                                  stylename="panel-top-container">
+                                <vbox expand="bluepanel"
+                                      height="100%"
+                                      stylename="panel"
+                                      width="100%">
+                                    <label stylename="paneltext"
+                                           value="msg://inProgress"/>
+                                    <vbox id="bluepanel"
+                                          stylename="inner-panel"
+                                          width="100%">
+                                        <vbox align="MIDDLE_CENTER">
+                                            <label stylename="bigtext"
+                                                   value="126"
+                                                   width="100%"/>
+                                            <chart:serialChart id="redLineChart"
+                                                               autoMargins="true"
+                                                               categoryField="year"
+                                                               creditsPosition="bottom-left"
+                                                               height="110px"
+                                                               marginBottom="26"
+                                                               marginLeft="20"
+                                                               marginRight="20"
+                                                               marginTop="10"
+                                                               theme="NONE"
+                                                               width="100%">
+                                                <chart:valueAxes>
+                                                    <chart:axis axisAlpha="0"
+                                                                gridAlpha="0"
+                                                                labelsEnabled="false"
+                                                                position="LEFT"
+                                                                stackType="REGULAR"/>
+                                                </chart:valueAxes>
+                                                <chart:chartCursor bulletsEnabled="true"
+                                                                   categoryBalloonEnabled="false"
+                                                                   cursorAlpha="0"
+                                                                   selectionAlpha="0"
+                                                                   valueBalloonsEnabled="true"
+                                                                   valueLineBalloonEnabled="false"
+                                                                   valueLineEnabled="false"/>
+                                                <chart:balloon borderAlpha="0.4"
+                                                               borderColor="#4085FC"
+                                                               borderThickness="2"
+                                                               color="#4085FC"
+                                                               fillAlpha="0.8"
+                                                               fillColor="WHITE"
+                                                               fixedPosition="false"
+                                                               shadowAlpha="0"/>
+                                                <chart:graphs>
+                                                    <chart:graph fillAlphas="0.4"
+                                                                 fillColors="#BCF3EE"
+                                                                 lineAlpha="1"
+                                                                 lineColor="#BCF3EE"
+                                                                 lineThickness="2"
+                                                                 showBalloon="true"
+                                                                 title="Cars"
+                                                                 type="LINE"
+                                                                 valueField="value"/>
+                                                </chart:graphs>
+                                                <chart:categoryAxis axisAlpha="0"
+                                                                    axisColor="#DADADA"
+                                                                    gridAlpha="0.1"
+                                                                    gridColor="#000000"
+                                                                    labelFrequency="0"
+                                                                    labelsEnabled="false"
+                                                                    startOnAxis="true"/>
+                                            </chart:serialChart>
+                                        </vbox>
+                                    </vbox>
+                                </vbox>
+                            </vbox>
+                            <vbox height="50%"
+                                  stylename="panel-top-container">
+                                <vbox expand="yellowpanel"
+                                      height="100%"
+                                      stylename="panel"
+                                      width="100%">
+                                    <label stylename="paneltext"
+                                           value="msg://averageTripTime"/>
+                                    <vbox id="yellowpanel"
+                                          stylename="inner-panel"
+                                          width="100%">
+                                        <vbox align="MIDDLE_CENTER">
+                                            <label stylename="bigtext"
+                                                   value="42"
+                                                   width="100%"/>
+                                            <chart:serialChart id="greenLineChart"
+                                                               autoMargins="true"
+                                                               categoryField="year"
+                                                               creditsPosition="bottom-left"
+                                                               height="110px"
+                                                               marginBottom="26"
+                                                               marginLeft="20"
+                                                               marginRight="20"
+                                                               marginTop="10"
+                                                               theme="NONE"
+                                                               width="100%">
+                                                <chart:valueAxes>
+                                                    <chart:axis axisAlpha="0"
+                                                                gridAlpha="0"
+                                                                labelsEnabled="false"
+                                                                position="LEFT"
+                                                                stackType="REGULAR"/>
+                                                </chart:valueAxes>
+                                                <chart:chartCursor bulletsEnabled="true"
+                                                                   categoryBalloonEnabled="false"
+                                                                   cursorAlpha="0"
+                                                                   selectionAlpha="0"
+                                                                   valueBalloonsEnabled="true"
+                                                                   valueLineBalloonEnabled="false"
+                                                                   valueLineEnabled="false"/>
+                                                <chart:balloon borderAlpha="0.4"
+                                                               borderColor="#6ED329"
+                                                               borderThickness="2"
+                                                               color="#6ED329"
+                                                               fillAlpha="0.8"
+                                                               fillColor="WHITE"
+                                                               fixedPosition="false"
+                                                               shadowAlpha="0"/>
+                                                <chart:graphs>
+                                                    <chart:graph fillAlphas="0"
+                                                                 fillColors="#6ED329"
+                                                                 lineAlpha="0.6"
+                                                                 lineColor="#6ED329"
+                                                                 lineThickness="2"
+                                                                 showBalloon="true"
+                                                                 bulletColor="#FFFFFF"
+                                                                 bullet="ROUND"
+                                                                 bulletBorderAlpha="1"
+                                                                 useLineColorForBulletBorder="true"
+                                                                 title="Cars"
+                                                                 type="LINE"
+                                                                 valueField="value"/>
+                                                </chart:graphs>
+                                                <chart:categoryAxis axisAlpha="0"
+                                                                    axisColor="#DADADA"
+                                                                    gridAlpha="0"
+                                                                    labelFrequency="0"
+                                                                    labelsEnabled="false"
+                                                                    startOnAxis="false"/>
+                                            </chart:serialChart>
+                                        </vbox>
+                                    </vbox>
+                                </vbox>
+                            </vbox>
+                            <vbox height="50%"
+                                  stylename="panel-top-container">
+                                <vbox expand="redpanel"
+                                      height="100%"
+                                      stylename="panel"
+                                      width="100%">
+                                    <label stylename="paneltext"
+                                           value="msg://online"/>
+                                    <vbox id="redpanel"
+                                          stylename="inner-panel"
+                                          width="100%">
+                                        <vbox align="MIDDLE_CENTER">
+                                            <label stylename="bigtext"
+                                                   value="131"
+                                                   width="100%"/>
+                                            <chart:serialChart id="blueSerialChart"
+                                                               autoMargins="true"
+                                                               categoryField="year"
+                                                               creditsPosition="bottom-left"
+                                                               height="110px"
+                                                               marginBottom="26"
+                                                               marginLeft="20"
+                                                               marginRight="20"
+                                                               marginTop="10"
+                                                               theme="NONE"
+                                                               width="100%">
+                                                <chart:valueAxes>
+                                                    <chart:axis axisAlpha="0"
+                                                                gridAlpha="0"
+                                                                labelsEnabled="false"
+                                                                position="LEFT"
+                                                                stackType="REGULAR"/>
+                                                </chart:valueAxes>
+                                                <chart:chartCursor categoryBalloonAlpha="0"
+                                                                   categoryBalloonEnabled="false"
+                                                                   cursorAlpha="0"
+                                                                   cursorColor="#3A56E8"
+                                                                   selectionAlpha="1"
+                                                                   valueBalloonsEnabled="false"
+                                                                   valueLineBalloonEnabled="false"
+                                                                   valueLineEnabled="false"/>
+                                                <chart:balloon borderAlpha="0.4"
+                                                               borderColor="#3A56E8"
+                                                               color="#3A56E8"
+                                                               fixedPosition=""
+                                                               fillAlpha="0.8"/>
+                                                <chart:graphs>
+                                                    <chart:graph fillAlphas="1"
+                                                                 fillColors="#4085fc"
+                                                                 lineAlpha="0"
+                                                                 showBalloon="true"
+                                                                 title="Cars"
+                                                                 type="COLUMN"
+                                                                 valueField="value"/>
+                                                    <chart:graph fillAlphas="1"
+                                                                 fillColors="#EFEFEF"
+                                                                 lineAlpha="0"
+                                                                 showBalloon="true"
+                                                                 title="All"
+                                                                 type="COLUMN"
+                                                                 valueField="backValue"/>
+                                                </chart:graphs>
+                                                <chart:categoryAxis axisAlpha="0"
+                                                                    axisColor="#DADADA"
+                                                                    gridAlpha="0"
+                                                                    labelFrequency="0"
+                                                                    labelsEnabled="false"
+                                                                    startOnAxis="false"/>
+                                            </chart:serialChart>
+                                        </vbox>
+                                    </vbox>
+                                </vbox>
+                            </vbox>
+                        </cssLayout>
+                    </vbox>
+                    <cssLayout id="responsive"
+                               responsive="true"
+                               stylename="responsive"
+                               width="100%">
+                        <vbox height="50%"
+                              stylename="panel-full-container">
+                            <vbox height="100%"
+                                  stylename="panel"
+                                  width="100%">
+                                <chart:mapViewer id="map"
+                                                 height="100%"
+                                                 width="100%"/>
+                            </vbox>
+                        </vbox>
+                        <vbox height="50%"
+                              stylename="panel-container">
+                            <vbox expand="pieChart"
+                                  height="100%"
+                                  stylename="panel"
+                                  width="100%">
+                                <label stylename="paneltext"
+                                       value="msg://carDelivery"/>
+                                <chart:pieChart id="pieChart"
+                                                angle="0"
+                                                colorField="color"
+                                                creditsPosition="bottom-left"
+                                                depth3D="0"
+                                                labelsEnabled="false"
+                                                radius="35%"
+                                                startDuration="1"
+                                                stylename="pie-chart"
+                                                titleField="type"
+                                                valueField="class"
+                                                width="100%">
+                                    <chart:legend align="CENTER"
+                                                  equalWidths="false"
+                                                  autoMargins="true"
+                                                  markerType="CIRCLE"
+                                                  position="BOTTOM"/>
+                                </chart:pieChart>
+                            </vbox>
+                        </vbox>
+                        <vbox stylename="panel-container panel-table">
+                            <vbox expand="routesTable"
+                                  height="100%"
+                                  stylename="panel"
+                                  width="100%">
+                                <label stylename="paneltext"
+                                       value="msg://rides"/>
+                                <table id="routesTable"
+                                       columnHeaderVisible="false"
+                                       showSelection="false"
+                                       stylename="color-table"
+                                       width="100%">
+                                    <columns>
+                                        <column id="time"
+                                                width="70px"/>
+                                        <column id="departure"
+                                                align="CENTER"/>
+                                        <column id="direction"
+                                                width="40px"/>
+                                        <column id="arrival"
+                                                align="CENTER"/>
+                                    </columns>
+                                    <rows datasource="routeDs"/>
+                                </table>
+                            </vbox>
+                        </vbox>
+                    </cssLayout>
+                </vbox>
+            </hbox>
+        </cssLayout>
+    </layout>
+</window>
