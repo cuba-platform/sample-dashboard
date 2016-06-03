@@ -2,6 +2,8 @@
 
 This is a showcase [CUBA](https://www.cuba-platform.com) application which demonstrates how to build a responsive UI screen.
 
+You can see this demo in action at [www.cuba-platform.com](https://demo.cuba-platform.com/dashboard).
+
 The application has fully customized dashboard which uses `CssLayout` with [Vaadin responsive extention](https://vaadin.com/wiki/-/wiki/Main/Responsive+layouts+using+the+Responsive+extension).
 
 * The `ExtAppMainWindow` controller extends the `AppMainWindow` controller defined in the platform.
@@ -15,7 +17,5 @@ To see the example in action, do the following:
 * Click *Run > Start application server*
 * If you see the warning *Database does not exist ...*, click *Create DB in background*
 * Go to `http://localhost:8080/app` and log in as `admin` / `admin`
-
-You can see this demo in action at [www.cuba-platform.com](https://demo.cuba-platform.com/dashboard/).
 
 Based on CUBA Platform 6.1.5
