@@ -1,4 +1,4 @@
-rootProject.name = 'platform-sample-dashboard'
+rootProject.name = 'sample-dashboard'
 include(':app-global', ':app-core', ':app-gui', ':app-web')
 project(':app-global').projectDir = new File(settingsDir, 'modules/global')
 project(':app-core').projectDir = new File(settingsDir, 'modules/core')
