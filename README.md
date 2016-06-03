@@ -16,6 +16,6 @@ To see the example in action, do the following:
 * Open the project in Studio
 * Click *Run > Start application server*
 * If you see the warning *Database does not exist ...*, click *Create DB in background*
-* Go to `http://localhost:8080/app` and log in as `admin` / `admin`
+* Go to `http://localhost:8080/dashboard` and log in as `demo` / `demo`
 
 Based on CUBA Platform 6.1.5
