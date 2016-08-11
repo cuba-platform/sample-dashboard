@@ -4,7 +4,7 @@ This is a showcase [CUBA](https://www.cuba-platform.com) application which demon
 
 You can see this demo in action at [www.cuba-platform.com](https://demo.cuba-platform.com/dashboard).
 
-The application has fully customized dashboard which uses `CssLayout` with [Vaadin responsive extention](https://vaadin.com/wiki/-/wiki/Main/Responsive+layouts+using+the+Responsive+extension).
+The application has fully customized dashboard which uses `CssLayout` with the [Vaadin responsive extension](https://vaadin.com/wiki/-/wiki/Main/Responsive+layouts+using+the+Responsive+extension).
 
 * The `ExtAppMainWindow` controller extends the `AppMainWindow` controller defined in the platform.
 * The `BootstrapListener` class extends the `CubaBootstrapListener` to add `viewport` metatag with `device-width` option.
