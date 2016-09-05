@@ -76,9 +76,13 @@
     overflow: hidden;
   }
 
-  .logo {
+  .v-slot-logo {
     width: 150px;
     text-align: center;
+
+    .v-widget {
+      text-align: center;
+    }
   }
 
   .panel {
@@ -225,7 +229,7 @@
         width: 50px;
       }
 
-      .logo {
+      .v-slot-logo {
         width: 67px;
       }
 

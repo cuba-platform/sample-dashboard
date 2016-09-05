@@ -35,10 +35,9 @@
                 <cssLayout height="100%"
                            stylename="leftmenu">
                     <vbox stylename="userbar">
-                        <embedded id="logo"
-                                  stylename="logo"
-                                  type="IMAGE"
-                                  src="theme://icons/taxi.png"/>
+                        <label id="logo"
+                               icon="icons/taxi.png"
+                               stylename="logo"/>
                     </vbox>
                     <button align="MIDDLE_LEFT"
                             caption="msg://dashboard"
@@ -69,20 +68,20 @@
                             icon="icons/settings.png"
                             invoke="buttonNotImplementedAction"
                             stylename="menubutton"/>
-                    <link stylename="cuba-full-link"
+                    <link icon="icons/cubalogo-full.png"
+                          stylename="cuba-full-link"
                           target="_blank"
-                          icon="icons/cubalogo-full.png"
                           url="https://www.cuba-platform.com"/>
-                    <link stylename="cubalink"
+                    <link icon="icons/cubalogo.png"
+                          stylename="cubalink"
                           target="_blank"
-                          icon="icons/cubalogo.png"
                           url="https://www.cuba-platform.com"/>
                 </cssLayout>
                 <vbox id="mainbody"
                       expand="responsive"
                       height="100%"
                       stylename="mainbody">
-                    <vbox width="100%">
+                    <vbox>
                         <hbox expand="heading"
                               margin="true"
                               spacing="true"
@@ -135,13 +134,11 @@
                                 <vbox align="MIDDLE_LEFT"
                                       expand="greenpanel"
                                       height="100%"
-                                      stylename="panel"
-                                      width="100%">
+                                      stylename="panel">
                                     <label stylename="paneltext"
                                            value="msg://bookings"/>
                                     <vbox id="greenpanel"
-                                          stylename="inner-panel"
-                                          width="100%">
+                                          stylename="inner-panel">
                                         <vbox align="MIDDLE_CENTER">
                                             <label stylename="bigtext"
                                                    value="1870"
@@ -207,13 +204,11 @@
                                   stylename="panel-top-container">
                                 <vbox expand="bluepanel"
                                       height="100%"
-                                      stylename="panel"
-                                      width="100%">
+                                      stylename="panel">
                                     <label stylename="paneltext"
                                            value="msg://inProgress"/>
                                     <vbox id="bluepanel"
-                                          stylename="inner-panel"
-                                          width="100%">
+                                          stylename="inner-panel">
                                         <vbox align="MIDDLE_CENTER">
                                             <label stylename="bigtext"
                                                    value="126"
@@ -278,13 +273,11 @@
                                   stylename="panel-top-container">
                                 <vbox expand="yellowpanel"
                                       height="100%"
-                                      stylename="panel"
-                                      width="100%">
+                                      stylename="panel">
                                     <label stylename="paneltext"
                                            value="msg://averageTripTime"/>
                                     <vbox id="yellowpanel"
-                                          stylename="inner-panel"
-                                          width="100%">
+                                          stylename="inner-panel">
                                         <vbox align="MIDDLE_CENTER">
                                             <label stylename="bigtext"
                                                    value="42"
@@ -323,18 +316,18 @@
                                                                fixedPosition="false"
                                                                shadowAlpha="0"/>
                                                 <chart:graphs>
-                                                    <chart:graph fillAlphas="0"
+                                                    <chart:graph bullet="ROUND"
+                                                                 bulletBorderAlpha="1"
+                                                                 bulletColor="#FFFFFF"
+                                                                 fillAlphas="0"
                                                                  fillColors="#6ED329"
                                                                  lineAlpha="0.6"
                                                                  lineColor="#6ED329"
                                                                  lineThickness="2"
                                                                  showBalloon="true"
-                                                                 bulletColor="#FFFFFF"
-                                                                 bullet="ROUND"
-                                                                 bulletBorderAlpha="1"
-                                                                 useLineColorForBulletBorder="true"
                                                                  title="Cars"
                                                                  type="LINE"
+                                                                 useLineColorForBulletBorder="true"
                                                                  valueField="value"/>
                                                 </chart:graphs>
                                                 <chart:categoryAxis axisAlpha="0"
@@ -352,13 +345,11 @@
                                   stylename="panel-top-container">
                                 <vbox expand="redpanel"
                                       height="100%"
-                                      stylename="panel"
-                                      width="100%">
+                                      stylename="panel">
                                     <label stylename="paneltext"
                                            value="msg://online"/>
                                     <vbox id="redpanel"
-                                          stylename="inner-panel"
-                                          width="100%">
+                                          stylename="inner-panel">
                                         <vbox align="MIDDLE_CENTER">
                                             <label stylename="bigtext"
                                                    value="131"
@@ -392,8 +383,8 @@
                                                 <chart:balloon borderAlpha="0.4"
                                                                borderColor="#3A56E8"
                                                                color="#3A56E8"
-                                                               fixedPosition=""
-                                                               fillAlpha="0.8"/>
+                                                               fillAlpha="0.8"
+                                                               fixedPosition=""/>
                                                 <chart:graphs>
                                                     <chart:graph fillAlphas="1"
                                                                  fillColors="#4085fc"
@@ -430,8 +421,7 @@
                         <vbox height="50%"
                               stylename="panel-full-container">
                             <vbox height="100%"
-                                  stylename="panel"
-                                  width="100%">
+                                  stylename="panel">
                                 <chart:mapViewer id="map"
                                                  height="100%"
                                                  width="100%"/>
@@ -441,8 +431,7 @@
                               stylename="panel-container">
                             <vbox expand="pieChart"
                                   height="100%"
-                                  stylename="panel"
-                                  width="100%">
+                                  stylename="panel">
                                 <label stylename="paneltext"
                                        value="msg://carDelivery"/>
                                 <chart:pieChart id="pieChart"
@@ -458,8 +447,8 @@
                                                 valueField="class"
                                                 width="100%">
                                     <chart:legend align="CENTER"
-                                                  equalWidths="false"
                                                   autoMargins="true"
+                                                  equalWidths="false"
                                                   markerType="CIRCLE"
                                                   position="BOTTOM"/>
                                 </chart:pieChart>
@@ -468,8 +457,7 @@
                         <vbox stylename="panel-container panel-table">
                             <vbox expand="routesTable"
                                   height="100%"
-                                  stylename="panel"
-                                  width="100%">
+                                  stylename="panel">
                                 <label stylename="paneltext"
                                        value="msg://rides"/>
                                 <table id="routesTable"
