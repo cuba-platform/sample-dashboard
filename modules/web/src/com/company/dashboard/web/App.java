@@ -15,20 +15,8 @@
  */
 package com.company.dashboard.web;
 
-import com.haulmont.cuba.web.AppUI;
 import com.haulmont.cuba.web.DefaultApp;
-import com.haulmont.charts.web.gui.ChartComponentPalette;
-import com.haulmont.cuba.web.LoginWindow;
-import com.haulmont.cuba.web.UIView;
-import com.haulmont.cuba.web.gui.WebUIPaletteManager;
 
 public class App extends DefaultApp {
-    static {
-        WebUIPaletteManager.registerPalettes(new ChartComponentPalette());
-    }
 
-    @Override
-    protected UIView createLoginWindow(AppUI ui) {
-        return new LoginWindow(ui);
-    }
 }
