@@ -1,8 +1,8 @@
 # Dashboard Sample
 
-This is a showcase [CUBA](https://www.cuba-platform.com) application which demonstrates how to build a responsive UI screen.
+This is a showcase CUBA application which demonstrates how to build a responsive UI screen.
 
-You can see this demo in action at [www.cuba-platform.com](https://demo.cuba-platform.com/dashboard).
+You can see this demo in action at https://demo.cuba-platform.com/dashboard.
 
 The application has fully customized dashboard which uses `CssLayout` with the [Vaadin responsive extension](https://vaadin.com/wiki/-/wiki/Main/Responsive+layouts+using+the+Responsive+extension).
 
