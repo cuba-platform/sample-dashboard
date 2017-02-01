@@ -32,42 +32,15 @@
                   height="100%"
                   stylename="main-container"
                   width="100%">
-                <cssLayout height="100%"
+                <vbox height="100%" width="200px"
+                      expand="sideMenu"
                            stylename="leftmenu">
-                    <vbox stylename="userbar">
+                    <vbox stylename="userbar" height="">
                         <label id="logo"
                                icon="icons/taxi.png"
                                stylename="logo"/>
                     </vbox>
-                    <button align="MIDDLE_LEFT"
-                            caption="msg://dashboard"
-                            description="msg://dashboard"
-                            icon="icons/dashboard.png"
-                            stylename="menubutton menubutton-selected"/>
-                    <button align="MIDDLE_LEFT"
-                            caption="msg://cars"
-                            description="msg://cars"
-                            icon="icons/car.png"
-                            invoke="buttonNotImplementedAction"
-                            stylename="menubutton"/>
-                    <button align="MIDDLE_LEFT"
-                            caption="msg://orders"
-                            description="msg://orders"
-                            icon="icons/list.png"
-                            invoke="buttonNotImplementedAction"
-                            stylename="menubutton"/>
-                    <button align="MIDDLE_LEFT"
-                            caption="msg://reports"
-                            description="msg://reports"
-                            icon="icons/report.png"
-                            invoke="buttonNotImplementedAction"
-                            stylename="menubutton"/>
-                    <button align="MIDDLE_LEFT"
-                            caption="msg://settings"
-                            description="msg://settings"
-                            icon="icons/settings.png"
-                            invoke="buttonNotImplementedAction"
-                            stylename="menubutton"/>
+                    <main:sideMenu id="sideMenu" width="100%" height="300px" loadMenuConfig="false" stylename="sidemenu"/>
                     <link icon="icons/cubalogo-full.png"
                           stylename="cuba-full-link"
                           target="_blank"
@@ -76,7 +49,7 @@
                           stylename="cubalink"
                           target="_blank"
                           url="https://www.cuba-platform.com"/>
-                </cssLayout>
+                </vbox>
                 <vbox id="mainbody"
                       expand="responsive"
                       height="100%"

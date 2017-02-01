@@ -4,6 +4,11 @@
     box-shadow: inset 0 0 15px #2D353D;
   }
 
+  .leftmenu .sidemenu {
+    background-color: #262626;
+    background-image: none;
+  }
+
   .leftmenu .menubutton {
     width: 250px;
     color: #999999;
@@ -62,14 +67,13 @@
     display: none;
   }
 
-  .leftmenu .menubutton.menubutton-selected {
+  .leftmenu .c-sidemenu-item.menubutton-selected {
     color: #ffffff;
     background-color: #006BAC !important;
   }
 
-  .leftmenu .menubutton:hover {
-    color: #ffffff;
-    background-color: #006BAC !important;
+  .leftmenu .c-sidemenu-item:hover {
+    background-color: #006bac !important;
   }
 
   .main-container {
@@ -178,6 +182,22 @@
         text-align: right;
       }
 
+      .leftmenu .c-sidemenu-item {
+        padding: 10px 30px 10px 28px;
+      }
+
+      .leftmenu .c-sidemenu {
+        width: 98px !important;
+      }
+
+      .leftmenu .c-sidemenu-item .v-icon {
+        width: 50px;
+      }
+
+      .leftmenu .c-sidemenu-item .c-sidemenu-item-caption {
+        display: none;
+      }
+
       .panel-container {
         width: 50% !important;
         height: 100% !important;
@@ -205,28 +225,6 @@
       .responsive-panels {
         width: 100%;
         height: 100%;
-      }
-
-      .menubutton {
-        width: 92px;
-        height: initial;
-        text-align: center;
-        padding: 10px 0;
-      }
-
-      .menubutton .v-button-wrap {
-        display: inline-block;
-        width: 50px;
-        white-space: normal;
-      }
-
-      .menubutton .v-button-wrap .v-button-caption {
-        display: none;
-      }
-
-      .menubutton .v-button-wrap .v-icon {
-        font-size: 28px;
-        width: 50px;
       }
 
       .v-slot-logo {
@@ -258,6 +256,15 @@
         display: block;
       }
 
+      .leftmenu .c-sidemenu-item {
+        padding: 3px 30px 3px 25px;
+      }
+
+      .leftmenu .c-sidemenu-item .v-icon {
+        width: 25px;
+        margin-right: 10px;
+      }
+
       .panel-container {
         width: 50% !important;
         height: 50% !important;
@@ -281,15 +288,6 @@
       .responsive-panels {
         width: 50%;
         height: 100%;
-      }
-
-      .menubutton {
-        width: 200px;
-      }
-
-      .menubutton .v-button-wrap .v-icon {
-        width: 25px;
-        margin: 0 10px;
       }
 
       .cubalink {

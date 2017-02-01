@@ -18,7 +18,6 @@ package com.company.dashboard.web.mainwindow;
 import com.company.dashboard.route.Route;
 import com.haulmont.charts.gui.amcharts.model.charts.PieChart;
 import com.haulmont.charts.gui.amcharts.model.charts.SerialChart;
-import com.haulmont.charts.gui.amcharts.model.data.DataItem;
 import com.haulmont.charts.gui.amcharts.model.data.ListDataProvider;
 import com.haulmont.charts.gui.amcharts.model.data.MapDataItem;
 import com.haulmont.charts.gui.components.charts.Chart;
@@ -28,7 +27,11 @@ import com.haulmont.charts.gui.map.model.InfoWindow;
 import com.haulmont.charts.gui.map.model.Marker;
 import com.haulmont.charts.gui.map.model.base.MarkerImage;
 import com.haulmont.cuba.gui.ComponentsHelper;
-import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.components.AbstractMainWindow;
+import com.haulmont.cuba.gui.components.Label;
+import com.haulmont.cuba.gui.components.Table;
+import com.haulmont.cuba.gui.components.Window;
+import com.haulmont.cuba.gui.components.mainwindow.SideMenu;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.web.Connection;
@@ -67,6 +70,9 @@ public class ExtAppMainWindow extends AbstractMainWindow {
     private MapViewer map;
 
     @Inject
+    private SideMenu sideMenu;
+
+    @Inject
     private CollectionDatasource<Route, UUID> routeDs;
 
     @Override
@@ -77,6 +83,42 @@ public class ExtAppMainWindow extends AbstractMainWindow {
         setPieChartData();
         initMap();
         initTable();
+        initSideMenu();
+    }
+
+    private void initSideMenu() {
+        SideMenu.MenuItem dashboardMenuItem = sideMenu.createMenuItem("dashboard",
+                getMessage("dashboard"),
+                "icons/dashboard.png",
+                menuItemAction -> buttonNotImplementedAction()
+        );
+        dashboardMenuItem.setStyleName("menubutton-selected");
+        sideMenu.addMenuItem(dashboardMenuItem);
+
+        sideMenu.addMenuItem(
+                sideMenu.createMenuItem("cars",
+                        getMessage("cars"),
+                        "icons/car.png",
+                        menuItemAction -> buttonNotImplementedAction())
+        );
+        sideMenu.addMenuItem(
+                sideMenu.createMenuItem("orders",
+                        getMessage("orders"),
+                        "icons/list.png",
+                        menuItemAction -> buttonNotImplementedAction())
+        );
+        sideMenu.addMenuItem(
+                sideMenu.createMenuItem("reports",
+                        getMessage("reports"),
+                        "icons/report.png",
+                        menuItemAction -> buttonNotImplementedAction())
+        );
+        sideMenu.addMenuItem(
+                sideMenu.createMenuItem("settings",
+                        getMessage("settings"),
+                        "icons/settings.png",
+                        menuItemAction -> buttonNotImplementedAction())
+        );
     }
 
     private void initTable() {
@@ -223,20 +265,20 @@ public class ExtAppMainWindow extends AbstractMainWindow {
         showNotification(getMessage("buttonMessage"), NotificationType.HUMANIZED);
     }
 
-    private DataItem graphData(int value) {
+    private MapDataItem graphData(int value) {
         MapDataItem item = new MapDataItem();
         item.add("value", value);
         return item;
     }
 
-    private DataItem graphDataBack(int value, int backValue) {
+    private MapDataItem graphDataBack(int value, int backValue) {
         MapDataItem item = new MapDataItem();
         item.add("value", value);
         item.add("backValue", backValue);
         return item;
     }
 
-    private DataItem pieCount(int carClassCount, String carClassName, String carColor) {
+    private MapDataItem pieCount(int carClassCount, String carClassName, String carColor) {
         MapDataItem item = new MapDataItem();
         item.add("class", carClassCount);
         item.add("type", carClassName);
