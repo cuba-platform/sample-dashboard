@@ -124,6 +124,25 @@
     overflow: visible;
   }
 
+  text.amcharts-label {
+    text-transform: uppercase;
+    font-family: "Open Sans",sans-serif;
+  }
+
+  text.amcharts-label-green-thin,
+  text.amcharts-label-yellow-thin,
+  text.amcharts-label-blue-thin,
+  text.amcharts-label-red-thin {
+    font-weight: 100;
+  }
+
+  .panel-table .v-captiontext {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+  }
+
   .responsive-all {
     overflow: visible;
 
@@ -134,17 +153,17 @@
       }
 
       .panel-container {
-        width: 100% !important;
+        width: calc(100% - 20px) !important;
         height: 300px !important;
       }
 
       .panel-top-container {
-        width: 50% !important;
-        height: 50% !important;
+        width: calc(50% - 20px) !important;
+        height: 200px !important;
       }
 
       .panel-full-container {
-        width: 100% !important;
+        width: calc(100% - 20px) !important;
         height: 300px !important;
       }
 
@@ -160,10 +179,6 @@
 
       .main-container .open-menu-button {
         display: block;
-      }
-
-      .colorBoxPanel {
-        height: 400px;
       }
 
       .color-table .v-table-body {
@@ -199,8 +214,8 @@
       }
 
       .panel-container {
-        width: 50% !important;
-        height: 100% !important;
+        width: calc(50% - 20px) !important;
+        height: calc(100% - 20px) !important;
       }
 
       .panel-container .v-slot-panel {
@@ -208,12 +223,12 @@
       }
 
       .panel-top-container {
-        width: 50% !important;
-        height: 50% !important;
+        width: calc(50% - 20px) !important;
+        height: 200px !important;
       }
 
       .panel-full-container {
-        width: 100% !important;
+        width: calc(100% - 20px) !important;
         height: 100% !important;
       }
 
@@ -244,10 +259,6 @@
         width: 98px !important;
         padding: 9px 0 10px 20px;
       }
-
-      .colorBoxPanel {
-        height: 400px;
-      }
     }
 
     &[width-range~="1201px-"] {
@@ -266,18 +277,18 @@
       }
 
       .panel-container {
-        width: 50% !important;
-        height: 50% !important;
+        width: calc(50% - 20px) !important;
+        height: calc(50% - 20px) !important;
       }
 
       .panel-top-container {
-        width: 25% !important;
-        height: 100% !important;
+        width: calc(25% - 20px) !important;
+        height: 200px !important;
       }
 
       .panel-full-container {
-        width: 100% !important;
-        height: 50% !important;
+        width: calc(100% - 20px) !important;
+        height: calc(50% - 20px) !important;
       }
 
       .panel-semifull-container {
