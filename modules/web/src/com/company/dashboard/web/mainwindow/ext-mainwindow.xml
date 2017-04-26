@@ -109,7 +109,6 @@
                                            marginRight="20"
                                            marginTop="60"
                                            theme="NONE"
-                                           align="LEFT"
                                            stylename="panel-top-container panel"
                                            addClassNames="true"
                                            width="100%">
