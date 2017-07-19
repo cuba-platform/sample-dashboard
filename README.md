@@ -18,4 +18,4 @@ To see the example in action, do the following:
 * If you see the warning *Database does not exist ...*, click *Create DB in background*
 * Go to `http://localhost:8080/app` and log in as `admin` / `admin`
 
-Based on CUBA Platform 6.5.4
+Based on CUBA Platform 6.6.0

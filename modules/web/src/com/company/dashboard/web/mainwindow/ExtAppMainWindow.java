@@ -16,12 +16,11 @@
 package com.company.dashboard.web.mainwindow;
 
 import com.company.dashboard.route.Route;
-import com.haulmont.charts.gui.amcharts.model.charts.PieChart;
-import com.haulmont.charts.gui.amcharts.model.charts.SerialChart;
-import com.haulmont.charts.gui.amcharts.model.data.ListDataProvider;
-import com.haulmont.charts.gui.amcharts.model.data.MapDataItem;
-import com.haulmont.charts.gui.components.charts.Chart;
+import com.haulmont.charts.gui.components.charts.PieChart;
+import com.haulmont.charts.gui.components.charts.SerialChart;
 import com.haulmont.charts.gui.components.map.MapViewer;
+import com.haulmont.charts.gui.data.ListDataProvider;
+import com.haulmont.charts.gui.data.MapDataItem;
 import com.haulmont.charts.gui.map.model.GeoPoint;
 import com.haulmont.charts.gui.map.model.InfoWindow;
 import com.haulmont.charts.gui.map.model.Marker;
@@ -46,19 +45,19 @@ public class ExtAppMainWindow extends AbstractMainWindow {
     private InfoWindow openedCarTooltip = null;
 
     @Inject
-    private Chart redLineChart;
+    private SerialChart redLineChart;
 
     @Inject
-    private Chart greenSerialChart;
+    private SerialChart greenSerialChart;
 
     @Inject
-    private Chart blueSerialChart;
+    private SerialChart blueSerialChart;
 
     @Inject
-    private Chart greenLineChart;
+    private SerialChart greenLineChart;
 
     @Inject
-    private Chart pieChart;
+    private PieChart pieChart;
 
     @Inject
     private Table<Route> routesTable;
@@ -77,8 +76,6 @@ public class ExtAppMainWindow extends AbstractMainWindow {
 
     @Override
     public void init(Map<String, Object> params) {
-        super.init(params);
-
         setChartData();
         setPieChartData();
         initMap();
@@ -180,7 +177,7 @@ public class ExtAppMainWindow extends AbstractMainWindow {
         marker.setDraggable(false);
         map.addMarker(marker);
 
-        map.addMarkerClickListener( e -> {
+        map.addMarkerClickListener(e -> {
             Marker clickedMarker = e.getMarker();
             String caption = clickedMarker.getCaption();
             caption = caption.replaceAll("\n", "<br>");
@@ -192,9 +189,8 @@ public class ExtAppMainWindow extends AbstractMainWindow {
             this.openedCarTooltip = w;
         });
 
-        map.addInfoWindowClosedListener( e -> {
-            this.openedCarTooltip = null;
-        });
+        map.addInfoWindowClosedListener(e ->
+                this.openedCarTooltip = null);
     }
 
     private void setChartData() {
@@ -204,12 +200,11 @@ public class ExtAppMainWindow extends AbstractMainWindow {
         ListDataProvider topGreenLineDataProvider = new ListDataProvider();
 
         int[] redLineChartData = {5, 7, 6, 9, 7, 8, 5, 6, 4, 6, 5, 7, 4, 5, 3, 4, 2, 0};
-        for (int i = 0; i < redLineChartData.length; i++) {
-            topRedLineDataProvider.addItem(graphData(redLineChartData[i]));
+        for (int aRedLineChartData : redLineChartData) {
+            topRedLineDataProvider.addItem(graphData(aRedLineChartData));
         }
 
-        SerialChart redLineChartConfiguration = (SerialChart) redLineChart.getConfiguration();
-        redLineChartConfiguration.setDataProvider(topRedLineDataProvider);
+        redLineChart.setDataProvider(topRedLineDataProvider);
 
         int[] greenSerialChartData = {
                 3, 2, 5, 4, 3, 2, 1, 3, 3, 5,
@@ -223,8 +218,7 @@ public class ExtAppMainWindow extends AbstractMainWindow {
             topGreenSerialDataProvider.addItem(graphDataBack(greenSerialChartData[i], greenSerialChartDataBack[i]));
         }
 
-        SerialChart greenSerialChartConfiguration = (SerialChart) greenSerialChart.getConfiguration();
-        greenSerialChartConfiguration.setDataProvider(topGreenSerialDataProvider);
+        greenSerialChart.setDataProvider(topGreenSerialDataProvider);
 
         int[] blueSerialChartData = {
                 5, 4, 9, 8, 1, 9, 3, 5, 8, 8,
@@ -238,16 +232,14 @@ public class ExtAppMainWindow extends AbstractMainWindow {
             topBlueSerialDataProvider.addItem(graphDataBack(blueSerialChartData[i], blueSerialChartDataBack[i]));
         }
 
-        SerialChart blueSerialChartConfiguration = (SerialChart) blueSerialChart.getConfiguration();
-        blueSerialChartConfiguration.setDataProvider(topBlueSerialDataProvider);
+        blueSerialChart.setDataProvider(topBlueSerialDataProvider);
 
         int[] greenLineChartData = {10, 8, 15, 28, 15, 18, 15, 23, 18, 12, 16, 10, 18};
-        for (int i = 0; i < greenLineChartData.length; i++) {
-            topGreenLineDataProvider.addItem(graphData(greenLineChartData[i]));
+        for (int aGreenLineChartData : greenLineChartData) {
+            topGreenLineDataProvider.addItem(graphData(aGreenLineChartData));
         }
 
-        SerialChart greenLineChartConfiguration = (SerialChart) greenLineChart.getConfiguration();
-        greenLineChartConfiguration.setDataProvider(topGreenLineDataProvider);
+        greenLineChart.setDataProvider(topGreenLineDataProvider);
     }
 
     private void setPieChartData() {
@@ -257,8 +249,7 @@ public class ExtAppMainWindow extends AbstractMainWindow {
         dataProvider.addItem(pieCount(61, getMessage("inTime"), "#84B761"));
         dataProvider.addItem(pieCount(12, getMessage("early"), "#67B7DC"));
 
-        PieChart pieChartVals = (PieChart) pieChart.getConfiguration();
-        pieChartVals.setDataProvider(dataProvider);
+        pieChart.setDataProvider(dataProvider);
     }
 
     public void buttonNotImplementedAction() {

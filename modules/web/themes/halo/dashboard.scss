@@ -5,8 +5,7 @@
   }
 
   .leftmenu .sidemenu {
-    background-color: #262626;
-    background-image: none;
+    background: #262626 none;
   }
 
   .leftmenu .menubutton {
@@ -14,8 +13,7 @@
     color: #999999;
     border-radius: 0;
     border: none !important;
-    background-color: transparent !important;
-    background-image: none !important;
+    background: transparent none !important;
     box-shadow: none !important;
     text-shadow: none !important;
     height: 35px;
@@ -27,16 +25,14 @@
     color: #D1D1D1;
     border-radius: 4px;
     border: none !important;
-    background-color: transparent !important;
-    background-image: none !important;
+    background: transparent none !important;
     box-shadow: none !important;
     text-shadow: none !important;
     text-align: left;
   }
 
   .v-popupbutton-popup .v-button.v-selected {
-    background-color: #4D5660 !important;
-    background-image: none !important;
+    background: #4D5660 none !important;
   }
 
   .v-popupbutton-popup .v-button {
@@ -602,8 +598,7 @@
   }
 
   .v-popupbutton-popup-open-menu-button .v-slot-cuba-context-menu-button:first-child .v-button {
-    background-color: #197de1;
-    background-image: linear-gradient(to bottom, #1b87e3 2%, #166ed5 98%);
+    background: #197de1 linear-gradient(to bottom, #1b87e3 2%, #166ed5 98%);
     color: white;
   }
 

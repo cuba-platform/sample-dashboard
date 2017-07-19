@@ -32,15 +32,19 @@
                   height="100%"
                   stylename="main-container"
                   width="100%">
-                <vbox height="100%" width="200px"
-                      expand="sideMenu"
-                           stylename="leftmenu">
+                <vbox expand="sideMenu"
+                      height="100%"
+                      stylename="leftmenu"
+                      width="200px">
                     <vbox stylename="userbar">
                         <label id="logo"
                                icon="icons/taxi.png"
                                stylename="logo"/>
                     </vbox>
-                    <main:sideMenu id="sideMenu" width="100%" loadMenuConfig="false" stylename="sidemenu"/>
+                    <main:sideMenu id="sideMenu"
+                                   loadMenuConfig="false"
+                                   stylename="sidemenu"
+                                   width="100%"/>
                     <link icon="icons/cubalogo-full.png"
                           stylename="cuba-full-link"
                           target="_blank"
@@ -100,21 +104,30 @@
                                     stylename="logout-button-cst"/>
                         </hbox>
                         <chart:serialChart id="greenSerialChart"
+                                           addClassNames="true"
                                            autoMargins="true"
                                            categoryField="year"
                                            creditsPosition="bottom-left"
-                                           height="188"
+                                           height="188px"
                                            marginBottom="26"
                                            marginLeft="20"
                                            marginRight="20"
                                            marginTop="60"
-                                           theme="NONE"
                                            stylename="panel-top-container panel"
-                                           addClassNames="true"
+                                           theme="NONE"
                                            width="100%">
                             <chart:allLabels>
-                                <chart:label text="msg://bookings" size="14" bold="true" x="10" y="10"/>
-                                <chart:label text="1870" size="35" x="10" bold="false" y="30" id="green-thin"/>
+                                <chart:label bold="true"
+                                             size="14"
+                                             text="msg://bookings"
+                                             x="10"
+                                             y="10"/>
+                                <chart:label id="green-thin"
+                                             bold="false"
+                                             size="35"
+                                             text="1870"
+                                             x="10"
+                                             y="30"/>
                             </chart:allLabels>
                             <chart:valueAxes>
                                 <chart:axis axisAlpha="0"
@@ -159,21 +172,30 @@
                                                 startOnAxis="false"/>
                         </chart:serialChart>
                         <chart:serialChart id="redLineChart"
+                                           addClassNames="true"
                                            autoMargins="true"
                                            categoryField="year"
                                            creditsPosition="bottom-left"
-                                           height="188"
+                                           height="188px"
                                            marginBottom="26"
                                            marginLeft="20"
                                            marginRight="20"
                                            marginTop="70"
-                                           addClassNames="true"
                                            stylename="panel-top-container panel"
                                            theme="NONE"
                                            width="100%">
                             <chart:allLabels>
-                                <chart:label text="msg://inProgress" size="14" bold="true" x="10" y="10"/>
-                                <chart:label text="126" size="35" x="10" bold="false" y="30" id="blue-thin"/>
+                                <chart:label bold="true"
+                                             size="14"
+                                             text="msg://inProgress"
+                                             x="10"
+                                             y="10"/>
+                                <chart:label id="blue-thin"
+                                             bold="false"
+                                             size="35"
+                                             text="126"
+                                             x="10"
+                                             y="30"/>
                             </chart:allLabels>
                             <chart:valueAxes>
                                 <chart:axis axisAlpha="0"
@@ -217,21 +239,30 @@
                                                 startOnAxis="true"/>
                         </chart:serialChart>
                         <chart:serialChart id="greenLineChart"
+                                           addClassNames="true"
                                            autoMargins="true"
                                            categoryField="year"
                                            creditsPosition="bottom-left"
-                                           height="188"
+                                           height="188px"
                                            marginBottom="26"
                                            marginLeft="20"
                                            marginRight="20"
                                            marginTop="70"
-                                           addClassNames="true"
                                            stylename="panel-top-container panel"
                                            theme="NONE"
                                            width="100%">
                             <chart:allLabels>
-                                <chart:label text="msg://averageTripTime" size="14" bold="true" x="10" y="10"/>
-                                <chart:label text="42" size="35" x="10" bold="false" y="30" id="yellow-thin"/>
+                                <chart:label bold="true"
+                                             size="14"
+                                             text="msg://averageTripTime"
+                                             x="10"
+                                             y="10"/>
+                                <chart:label id="yellow-thin"
+                                             bold="false"
+                                             size="35"
+                                             text="42"
+                                             x="10"
+                                             y="30"/>
                             </chart:allLabels>
                             <chart:valueAxes>
                                 <chart:axis axisAlpha="0"
@@ -278,21 +309,30 @@
                                                 startOnAxis="false"/>
                         </chart:serialChart>
                         <chart:serialChart id="blueSerialChart"
+                                           addClassNames="true"
                                            autoMargins="true"
                                            categoryField="year"
                                            creditsPosition="bottom-left"
-                                           height="188"
+                                           height="188px"
                                            marginBottom="26"
                                            marginLeft="20"
                                            marginRight="20"
                                            marginTop="60"
-                                           addClassNames="true"
                                            stylename="panel-top-container panel"
                                            theme="NONE"
                                            width="100%">
                             <chart:allLabels>
-                                <chart:label text="msg://online" size="14" bold="true" x="10" y="10"/>
-                                <chart:label text="131" size="35" x="10" bold="false" y="30" id="red-thin"/>
+                                <chart:label bold="true"
+                                             size="14"
+                                             text="msg://online"
+                                             x="10"
+                                             y="10"/>
+                                <chart:label id="red-thin"
+                                             bold="false"
+                                             size="35"
+                                             text="131"
+                                             x="10"
+                                             y="30"/>
                             </chart:allLabels>
                             <chart:valueAxes>
                                 <chart:axis axisAlpha="0"
@@ -342,43 +382,46 @@
                                responsive="true"
                                stylename="responsive"
                                width="100%">
-
-                                <chart:mapViewer id="map"
-                                                 stylename="panel-full-container panel"
-                                                 height="100%"
-                                                 width="100%"/>
-
-                            <chart:pieChart id="pieChart"
-                                            angle="0"
-                                            colorField="color"
-                                            creditsPosition="bottom-left"
-                                            depth3D="0"
-                                            labelsEnabled="false"
-                                            radius="35%"
-                                            startDuration="1"
-                                            stylename="pie-chart panel-container panel"
-                                            titleField="type"
-                                            valueField="class"
-                                            addClassNames="true"
-                                            marginTop="35"
-                                            height="50%"
-                                            width="100%">
-                                <chart:legend align="CENTER"
-                                              autoMargins="true"
-                                              equalWidths="false"
-                                              markerType="CIRCLE"
-                                              position="BOTTOM"/>
-                                <chart:allLabels>
-                                    <chart:label text="msg://carDelivery" size="14" bold="true" x="10" y="10"/>
-                                </chart:allLabels>
-                            </chart:pieChart>
-
-                        <vbox stylename="panel-container panel-table panel" expand="routesTable" height="100%">
+                        <chart:mapViewer id="map"
+                                         height="100%"
+                                         stylename="panel-full-container panel"
+                                         width="100%"/>
+                        <chart:pieChart id="pieChart"
+                                        addClassNames="true"
+                                        angle="0"
+                                        colorField="color"
+                                        creditsPosition="bottom-left"
+                                        depth3D="0"
+                                        height="50%"
+                                        labelsEnabled="false"
+                                        marginTop="35"
+                                        radius="35%"
+                                        startDuration="1"
+                                        stylename="pie-chart panel-container panel"
+                                        titleField="type"
+                                        valueField="class"
+                                        width="100%">
+                            <chart:legend align="CENTER"
+                                          autoMargins="true"
+                                          equalWidths="false"
+                                          markerType="CIRCLE"
+                                          position="BOTTOM"/>
+                            <chart:allLabels>
+                                <chart:label bold="true"
+                                             size="14"
+                                             text="msg://carDelivery"
+                                             x="10"
+                                             y="10"/>
+                            </chart:allLabels>
+                        </chart:pieChart>
+                        <vbox height="100%"
+                              stylename="panel-container panel-table panel">
                             <table id="routesTable"
+                                   caption="msg://rides"
                                    columnHeaderVisible="false"
+                                   height="100%"
                                    showSelection="false"
                                    stylename="color-table"
-                                   caption="msg://rides"
                                    width="100%">
                                 <columns>
                                     <column id="time"
