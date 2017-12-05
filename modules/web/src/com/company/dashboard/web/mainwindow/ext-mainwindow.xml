@@ -150,19 +150,25 @@
                                            fillAlpha="0.8"/>
                             <chart:graphs>
                                 <chart:graph fillAlphas="1"
-                                             fillColors="#67BFF4"
                                              lineAlpha="0"
                                              showBalloon="true"
                                              title="Cars"
                                              type="COLUMN"
-                                             valueField="value"/>
+                                             valueField="value">
+                                    <chart:fillColors>
+                                        <chart:color value="#67BFF4"/>
+                                    </chart:fillColors>
+                                </chart:graph>
                                 <chart:graph fillAlphas="1"
-                                             fillColors="#EFEFEF"
                                              lineAlpha="0"
                                              showBalloon="true"
                                              title="All"
                                              type="COLUMN"
-                                             valueField="backValue"/>
+                                             valueField="backValue">
+                                    <chart:fillColors>
+                                        <chart:color value="#EFEFEF"/>
+                                    </chart:fillColors>
+                                </chart:graph>
                             </chart:graphs>
                             <chart:categoryAxis axisAlpha="0"
                                                 axisColor="#DADADA"
@@ -221,14 +227,17 @@
                                            shadowAlpha="0"/>
                             <chart:graphs>
                                 <chart:graph fillAlphas="0.4"
-                                             fillColors="#BCF3EE"
                                              lineAlpha="1"
                                              lineColor="#BCF3EE"
                                              lineThickness="2"
                                              showBalloon="true"
                                              title="Cars"
                                              type="LINE"
-                                             valueField="value"/>
+                                             valueField="value">
+                                    <chart:fillColors>
+                                        <chart:color value="#BCF3EE"/>
+                                    </chart:fillColors>
+                                </chart:graph>
                             </chart:graphs>
                             <chart:categoryAxis axisAlpha="0"
                                                 axisColor="#DADADA"
@@ -291,7 +300,6 @@
                                              bulletBorderAlpha="1"
                                              bulletColor="#FFFFFF"
                                              fillAlphas="0"
-                                             fillColors="#6ED329"
                                              lineAlpha="0.6"
                                              lineColor="#6ED329"
                                              lineThickness="2"
@@ -299,7 +307,11 @@
                                              title="Cars"
                                              type="LINE"
                                              useLineColorForBulletBorder="true"
-                                             valueField="value"/>
+                                             valueField="value">
+                                    <chart:fillColors>
+                                        <chart:color value="#6ED329"/>
+                                    </chart:fillColors>
+                                </chart:graph>
                             </chart:graphs>
                             <chart:categoryAxis axisAlpha="0"
                                                 axisColor="#DADADA"
@@ -356,19 +368,25 @@
                                            fixedPosition=""/>
                             <chart:graphs>
                                 <chart:graph fillAlphas="1"
-                                             fillColors="#4085fc"
                                              lineAlpha="0"
                                              showBalloon="true"
                                              title="Cars"
                                              type="COLUMN"
-                                             valueField="value"/>
+                                             valueField="value">
+                                    <chart:fillColors>
+                                        <chart:color value="#4085fc"/>
+                                    </chart:fillColors>
+                                </chart:graph>
                                 <chart:graph fillAlphas="1"
-                                             fillColors="#EFEFEF"
                                              lineAlpha="0"
                                              showBalloon="true"
                                              title="All"
                                              type="COLUMN"
-                                             valueField="backValue"/>
+                                             valueField="backValue">
+                                    <chart:fillColors>
+                                        <chart:color value="#EFEFEF"/>
+                                    </chart:fillColors>
+                                </chart:graph>
                             </chart:graphs>
                             <chart:categoryAxis axisAlpha="0"
                                                 axisColor="#DADADA"
