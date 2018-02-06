@@ -34,5 +34,5 @@
     <!--</task:scheduled-tasks>-->
     <bean class="com.company.dashboard.web.App"
           name="cuba_App"
-          scope="prototype"/>
+          scope="vaadin"/>
 </beans>
