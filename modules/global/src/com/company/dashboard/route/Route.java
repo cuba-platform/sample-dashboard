@@ -17,10 +17,10 @@ package com.company.dashboard.route;
 
 import com.haulmont.chile.core.annotations.MetaClass;
 import com.haulmont.chile.core.annotations.MetaProperty;
-import com.haulmont.cuba.core.entity.AbstractNotPersistentEntity;
+import com.haulmont.cuba.core.entity.BaseUuidEntity;
 
 @MetaClass(name = "demo$Route")
-public class Route extends AbstractNotPersistentEntity {
+public class Route extends BaseUuidEntity {
     private static final long serialVersionUID = 121463765559033258L;
 
     @MetaProperty
