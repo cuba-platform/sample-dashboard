@@ -63,7 +63,7 @@
     display: none;
   }
 
-  .c-sidemenu-item{
+  .c-sidemenu-item {
     text-shadow: none;
   }
 
@@ -609,5 +609,15 @@
   .v-popupbutton-popup-open-menu-button .v-slot-cuba-context-menu-button:last-child .v-button {
     border-top: 1px solid #DADADA;
     text-align: center;
+  }
+
+  .v-popupbutton-popup.v-popupbutton-popup-open-menu-button .c-cm-button.v-button {
+    color: #c9c9c9;
+  }
+
+  .v-popupbutton-popup.v-popupbutton-popup-open-menu-button .c-cm-button.c-cm-button-selected {
+    @include linear-gradient(to bottom, #1b87e3 2%, #166ed5 98%);
+    color: #ecf2f8;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
   }
 }
