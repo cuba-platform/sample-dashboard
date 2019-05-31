@@ -1,7 +1,8 @@
 rootProject.name = 'sample-dashboard'
-include(':app-global', ':app-core', ':app-gui', ':app-web', 'app-web-themes')
-project(':app-global').projectDir = new File(settingsDir, 'modules/global')
-project(':app-core').projectDir = new File(settingsDir, 'modules/core')
-project(':app-gui').projectDir = new File(settingsDir, 'modules/gui')
-project(':app-web').projectDir = new File(settingsDir, 'modules/web')
-project(':app-web-themes').projectDir = new File(settingsDir, 'modules/web/themes')
+def modulePrefix = 'app'
+include(":${modulePrefix}-global" , ":${modulePrefix}-core" , ":${modulePrefix}-gui" , ":${modulePrefix}-web" , 'app-web-themes')
+project(":${modulePrefix}-global" ).projectDir = new File(settingsDir, 'modules/global')
+project(":${modulePrefix}-core" ).projectDir = new File(settingsDir, 'modules/core')
+project(":${modulePrefix}-gui" ).projectDir = new File(settingsDir, 'modules/gui')
+project(":${modulePrefix}-web" ).projectDir = new File(settingsDir, 'modules/web')
+project(":${modulePrefix}-web-themes" ).projectDir = new File(settingsDir, 'modules/web/themes')
