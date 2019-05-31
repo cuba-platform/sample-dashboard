@@ -87,7 +87,11 @@
 
     <logger name="org.apache" level="INFO"/>
 
+    <logger name="com.vaadin" level="WARN"/>
+
     <logger name="org.atmosphere" level="OFF"/>
+
+    <logger name="org.eclipse.jetty" level="OFF"/>
 
     <logger name="org.atmosphere.cpr.AtmosphereFramework" level="OFF"/>
 
