@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
+    <New id="CubaDS" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg/>
+        <Arg>jdbc/CubaDS</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp2.BasicDataSource">
+                <Set name="driverClassName">org.hsqldb.jdbc.JDBCDriver</Set>
+                <Set name="url">jdbc:hsqldb:hsql://localhost/dasboard</Set>
+                <Set name="username">sa</Set>
+                <Set name="maxIdle">2</Set>
+                <Set name="maxTotal">20</Set>
+                <Set name="maxWaitMillis">5000</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>

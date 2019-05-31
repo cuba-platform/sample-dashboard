@@ -57,6 +57,7 @@ dependencies {
 
 
 def hsql = 'org.hsqldb:hsqldb:2.2.9'
+def postgres = 'org.postgresql:postgresql:9.4.1212'
 
 configure([globalModule, coreModule, guiModule, webModule]) {
     apply(plugin: 'java')
@@ -121,6 +122,7 @@ configure(coreModule) {
         compile(globalModule)
         provided(servletApi)
         jdbc(hsql)
+        jdbc(postgres)
         testRuntime(hsql)
 
     }
@@ -257,3 +259,10 @@ task wrapper(type: Wrapper) {
 }
 
 apply from: 'extra.gradle'
+task buildUberJar(type: CubaUberJarBuilding) {
+    appName = 'dashboard'
+    coreJettyEnvPath = 'modules/core/web/META-INF/jetty-env.xml'
+    logbackConfigurationFile = 'etc/uber-jar-logback.xml'
+    singleJar = true
+    appProperties = ['cuba.automaticDatabaseUpdate': true]
+}
