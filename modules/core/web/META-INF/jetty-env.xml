@@ -7,7 +7,7 @@
         <Arg>
             <New class="org.apache.commons.dbcp2.BasicDataSource">
                 <Set name="driverClassName">org.hsqldb.jdbc.JDBCDriver</Set>
-                <Set name="url">jdbc:hsqldb:hsql://localhost/dasboard</Set>
+                <Set name="url">jdbc:hsqldb:mem://localhost/dashboard</Set>
                 <Set name="username">sa</Set>
                 <Set name="maxIdle">2</Set>
                 <Set name="maxTotal">20</Set>
